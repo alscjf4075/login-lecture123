@@ -1,6 +1,6 @@
 "use strict";
 
-const id = document.querySelector("#id");
+const id = document.querySelector("#id"),
   psword = document.querySelector("#psword"),
     loginBtn = doucument.querySelector("button");
 
@@ -20,5 +20,11 @@ function login(){
         body: JSON.syringify(req),
     })
     .then((res) => res.json())
-    .then(console.log); 
+    .then((res) => {
+        if(res.success){
+            location.href = "/";           
+        } else{
+            alert(res.msg);
+        }
+    }); 
 }
